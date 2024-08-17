@@ -6,6 +6,8 @@ import {
   Patch,
   Param,
   Delete,
+  HttpCode,
+  NotFoundException,
 } from '@nestjs/common';
 import { WrittersService } from './writters.service';
 import { CreateWritterDto } from './dto/create-writter.dto';
@@ -26,17 +28,26 @@ export class WrittersController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.writtersService.findOne(+id);
+  async findOne(@Param('id') id: string) {
+    const writter = await this.writtersService.findOne(id);
+    if (!writter) throw new NotFoundException();
+    return writter;
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateWritterDto: UpdateWritterDto) {
-    return this.writtersService.update(+id, updateWritterDto);
+  async update(
+    @Param('id') id: string,
+    @Body() updateWritterDto: UpdateWritterDto,
+  ) {
+    const writter = await this.writtersService.update(id, updateWritterDto);
+    if (!writter) throw new NotFoundException();
+    return writter;
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.writtersService.remove(+id);
+  @HttpCode(204)
+  async remove(@Param('id') id: string) {
+    const writter = await this.writtersService.remove(id);
+    if (!writter) throw new NotFoundException();
   }
 }

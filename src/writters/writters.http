@@ -12,10 +12,10 @@ Content-Type: application/json
 GET http://localhost:3000/writters
 
 ### Get by ID
-GET http://localhost:3000/writters/1
+GET http://localhost:3000/writters/yYUyZSPhuWQhdWvreORHU
 
 ### Update ID
-PATCH http://localhost:3000/writters/1
+PATCH http://localhost:3000/writters/yYUyZSPhuWQhdWvreORHU
 Content-Type: application/json
 
 {
@@ -23,4 +23,4 @@ Content-Type: application/json
 }
 
 ### Delete by ID
-DELETE http://localhost:3000/writters/1
+DELETE http://localhost:3000/writters/XyfLphfcfCnythbJ6vWjz

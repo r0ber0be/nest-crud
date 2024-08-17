@@ -1,26 +1,42 @@
 import { Injectable } from '@nestjs/common';
 import { CreateWritterDto } from './dto/create-writter.dto';
 import { UpdateWritterDto } from './dto/update-writter.dto';
+import { Repository } from 'typeorm';
+import { Writter } from './entities/writter.entity';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class WrittersService {
+  constructor(
+    @InjectRepository(Writter)
+    private readonly repository: Repository<Writter>,
+  ) {}
+
   create(createWritterDto: CreateWritterDto) {
-    return 'This action adds a new writter';
+    const writter = this.repository.create(createWritterDto);
+    return this.repository.save(writter);
   }
 
   findAll() {
-    return `This action returns all writters`;
+    return this.repository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} writter`;
+  findOne(id: string) {
+    return this.repository.findOneBy({ id });
   }
 
-  update(id: number, updateWritterDto: UpdateWritterDto) {
-    return `This action updates a #${id} writter`;
+  async update(id: string, updateWritterDto: UpdateWritterDto) {
+    const writter = await this.repository.findOneBy({ id });
+    if (!writter) return null;
+
+    this.repository.merge(writter, updateWritterDto);
+    return this.repository.save(writter);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} writter`;
+  async remove(id: string) {
+    const writter = await this.repository.findOneBy({ id });
+    if (!writter) return null;
+
+    return this.repository.delete(id);
   }
 }
