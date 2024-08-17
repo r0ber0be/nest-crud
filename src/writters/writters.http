@@ -1,0 +1,26 @@
+### Create
+POST http://localhost:3000/writters
+Content-Type: application/json
+
+{
+  "name": "Tezuka Yoshioka",
+  "email": "yooshioka@gmail.com",
+  "dateOfBirth": "2003-08-18"
+}
+
+### Get all
+GET http://localhost:3000/writters
+
+### Get by ID
+GET http://localhost:3000/writters/1
+
+### Update ID
+PATCH http://localhost:3000/writters/1
+Content-Type: application/json
+
+{
+  "email": "yoshiokaseijuro@gmail.com"
+}
+
+### Delete by ID
+DELETE http://localhost:3000/writters/1
