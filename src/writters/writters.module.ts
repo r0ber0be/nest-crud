@@ -8,5 +8,6 @@ import { Writter } from './entities/writter.entity';
   imports: [TypeOrmModule.forFeature([Writter])],
   controllers: [WrittersController],
   providers: [WrittersService],
+  exports: [WrittersService],
 })
 export class WrittersModule {}

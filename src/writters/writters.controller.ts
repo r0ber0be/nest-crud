@@ -8,16 +8,18 @@ import {
   Delete,
   HttpCode,
   NotFoundException,
+  Header,
 } from '@nestjs/common';
 import { WrittersService } from './writters.service';
 import { CreateWritterDto } from './dto/create-writter.dto';
 import { UpdateWritterDto } from './dto/update-writter.dto';
 
-@Controller('writters')
+@Controller({ path: 'writters', host: 'localhost' })
 export class WrittersController {
   constructor(private readonly writtersService: WrittersService) {}
 
   @Post()
+  @Header('Cache-Control', 'none')
   create(@Body() createWritterDto: CreateWritterDto) {
     return this.writtersService.create(createWritterDto);
   }
