@@ -1,7 +1,7 @@
 
 ## Description
 
-A simple Writter crud.
+A simple Writer crud.
 
 ## Installation
 
@@ -21,7 +21,7 @@ $ npm run start:dev
 ## Testing the API
 
 - You will need too install the extension REST Client
-- Go to the file writters.http
+- Go to the file writers.http
 - Run all requests in any order
 
 ## Support

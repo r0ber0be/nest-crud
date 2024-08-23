@@ -1,5 +1,5 @@
 ### Create
-POST http://localhost:3000/writters
+POST http://localhost:3000/writers
 Content-Type: application/json
 
 {
@@ -9,13 +9,13 @@ Content-Type: application/json
 }
 
 ### Get all
-GET http://localhost:3000/writters
+GET http://localhost:3000/writers
 
 ### Get by ID
-GET http://localhost:3000/writters/yYUyZSPhuWQhdWvreORHU
+GET http://localhost:3000/writers/yYUyZSPhuWQhdWvreORHU
 
 ### Update ID
-PATCH http://localhost:3000/writters/yYUyZSPhuWQhdWvreORHU
+PATCH http://localhost:3000/writers/yYUyZSPhuWQhdWvreORHU
 Content-Type: application/json
 
 {
@@ -23,4 +23,4 @@ Content-Type: application/json
 }
 
 ### Delete by ID
-DELETE http://localhost:3000/writters/XyfLphfcfCnythbJ6vWjz
+DELETE http://localhost:3000/writers/XyfLphfcfCnythbJ6vWjz

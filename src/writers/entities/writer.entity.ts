@@ -2,8 +2,8 @@ import { BeforeInsert, Column, Entity, PrimaryColumn } from 'typeorm';
 
 import { nanoid } from 'nanoid';
 
-@Entity('writters')
-export class Writter {
+@Entity('writers')
+export class Writer {
   @PrimaryColumn()
   id: string;
 

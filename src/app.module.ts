@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { WrittersModule } from './writters/writters.module';
+import { WritersModule } from './writers/writers.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
@@ -12,7 +12,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
-    WrittersModule,
+    WritersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
